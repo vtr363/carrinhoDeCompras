@@ -22,7 +22,7 @@ function removeItem(item){
 }
 function atualizaTotalProduto(item){
     let total = document.getElementById('total' + item)
-    valorTotal[item] = valorProduto[item] * qtd[item]
+    valorTotal[item] = parseFloat(valorProduto[item] * qtd[item])
     total.innerHTML = valorTotal[item]
 }
 function atualizaSubTotal(){
