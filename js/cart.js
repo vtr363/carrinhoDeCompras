@@ -22,10 +22,19 @@ function removeItem(item){
 }
 function atualizaTotalProduto(item){
     let total = document.getElementById('total' + item)
-    valorTotal[item] = parseFloat(valorProduto[item] * qtd[item])
-    total.innerHTML = valorTotal[item]
+    valorTotal[item] = Number.parseFloat(valorProduto[item] * qtd[item])
+    total.innerHTML = valorTotal[item].toFixed(2)
 }
 function atualizaSubTotal(){
     let totalCompra = document.getElementById('valorTotalCompra')
-    totalCompra.innerHTML = valorTotal.reduce((soma, a) => soma + a, 0)
+    totalCompra.innerHTML = valorTotal.reduce((soma, a) => soma + a, 0).toFixed(2)
+}
+function removeProduto(item){
+    let carrinho = document.getElementById('carrinho')
+    let produto = document.getElementById('produto' + item)
+
+    if (confirm("Você tem certeza que deseja excluir o produto?")){
+        qtd[item] = 0;
+        carrinho.removeChild(produto);
+    }
 }
