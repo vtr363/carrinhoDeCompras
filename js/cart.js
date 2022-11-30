@@ -142,6 +142,7 @@ function removeProduto(item){
 
     if (confirm("Você tem certeza que deseja excluir o produto?")){
         carrinho[item].quantidade = 0;
+        atualizaSubTotal()
         carrinhoHtml.removeChild(produto);
     }
 }
